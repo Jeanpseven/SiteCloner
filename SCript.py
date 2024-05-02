@@ -4,8 +4,9 @@ from urllib.parse import urlparse, urljoin
 
 def clone_website(url):
     try:
-        # Faz a solicitação HTTP ao host especificado
-        response = requests.get(url)
+        # Faz a solicitação HTTP ao host especificado com um cabeçalho de agente do usuário
+        headers = {"User-Agent": "Mozilla/5.0"}
+        response = requests.get(url, headers=headers)
         
         # Verifica se a solicitação foi bem-sucedida (status code 200)
         if response.status_code == 200:
